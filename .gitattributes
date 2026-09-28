@@ -1,0 +1,3 @@
+# Minden szövegfájl LF sorvéggel (a bővítmény Linuxos tárhelyen fut)
+* text=auto eol=lf
+*.zip binary

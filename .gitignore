@@ -1,0 +1,13 @@
+# Helyi munkafájlok – nem kerülnek a repóba
+CLAUDE.md
+.claude/
+
+# A telepítő ZIP a GitHub Release-be kerül, nem a repóba
+*.zip
+
+# Szerkesztő / rendszer
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
