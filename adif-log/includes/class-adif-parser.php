@@ -10,7 +10,7 @@ class Ham2K_ADIF_Parser {
 	/**
 	 * Fájl beolvasása és feldolgozása. Hiba esetén null.
 	 */
-	public static function parse_file( $path ) {
+	public static function parse_file( string $path ) {
 		$content = @file_get_contents( $path ); // phpcs:ignore
 		if ( false === $content ) {
 			return null;
@@ -23,7 +23,7 @@ class Ham2K_ADIF_Parser {
 	 *
 	 * @return array{header_text:string, header:array, records:array}
 	 */
-	public static function parse( $content ) {
+	public static function parse( string $content ) {
 		$content = preg_replace( '/^\xEF\xBB\xBF/', '', (string) $content );
 		$len     = strlen( $content );
 
@@ -83,7 +83,7 @@ class Ham2K_ADIF_Parser {
 	 * Mező értékének kiolvasása. A hossz a szabvány szerint bájt, de egyes programok
 	 * UTF-8 karakterben számolnak – ha a bájtos olvasás nem illeszkedik, karakteresen próbáljuk.
 	 */
-	private static function read_value( $content, $start, $n ) {
+	private static function read_value( string $content, int $start, int $n ) {
 		$value = substr( $content, $start, $n );
 		$next  = $start + strlen( $value );
 
@@ -100,13 +100,13 @@ class Ham2K_ADIF_Parser {
 		return array( $value, $next );
 	}
 
-	private static function ends_cleanly( $content, $pos ) {
+	private static function ends_cleanly( string $content, int $pos ) {
 		$lt   = strpos( $content, '<', $pos );
 		$rest = false === $lt ? substr( $content, $pos ) : substr( $content, $pos, $lt - $pos );
 		return '' === trim( $rest );
 	}
 
-	private static function is_utf8( $s ) {
+	private static function is_utf8( string $s ) {
 		return function_exists( 'mb_check_encoding' ) ? mb_check_encoding( $s, 'UTF-8' ) : (bool) preg_match( '//u', $s );
 	}
 
@@ -251,18 +251,18 @@ class Ham2K_ADIF_Parser {
 		return '';
 	}
 
-	private static function format_date( $d ) {
+	private static function format_date( string $d ) {
 		return preg_match( '/^(\d{4})(\d{2})(\d{2})$/', $d, $m ) ? "$m[1]-$m[2]-$m[3]" : $d;
 	}
 
-	private static function format_time( $t ) {
+	private static function format_time( string $t ) {
 		if ( preg_match( '/^(\d{2})(\d{2})(\d{2})?$/', $t, $m ) ) {
 			return $m[1] . ':' . $m[2] . ( isset( $m[3] ) ? ':' . $m[3] : '' );
 		}
 		return $t;
 	}
 
-	private static function format_freq( $f, $band ) {
+	private static function format_freq( string $f, string $band ) {
 		if ( '' === $f || ! is_numeric( $f ) ) {
 			return $band;
 		}
@@ -275,7 +275,7 @@ class Ham2K_ADIF_Parser {
 		return $exact . ' MHz';
 	}
 
-	private static function band_meters( $band ) {
+	private static function band_meters( string $band ) {
 		if ( preg_match( '/^([\d.]+)\s*(mm|cm|m)$/', $band, $m ) ) {
 			$mult = array(
 				'm'  => 1,
