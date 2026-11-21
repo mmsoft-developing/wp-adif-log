@@ -112,8 +112,10 @@ class Ham2K_ADIF_Parser {
 
 	/**
 	 * A feldolgozott ADIF-ből a megjelenítéshez szükséges adatok.
+	 *
+	 * @param bool $with_countries A QSO-k országát is meghatározza (contest napló).
 	 */
-	public static function summarize( array $adif ) {
+	public static function summarize( array $adif, bool $with_countries = false ) {
 		$records = self::sort_chronologically( $adif['records'] );
 		$first   = $records ? $records[0] : array();
 
@@ -126,8 +128,10 @@ class Ham2K_ADIF_Parser {
 		$dates   = array();
 		$bands   = array();
 		$modes   = array();
-		$p2p     = 0;
-		$rows    = array();
+		$p2p       = 0;
+		$rows      = array();
+		$countries = array();
+		$contest   = '';
 
 		foreach ( $records as $idx => $r ) {
 			$my_ref = self::field( $r, array( 'MY_POTA_REF' ) );
@@ -162,18 +166,28 @@ class Ham2K_ADIF_Parser {
 				++$p2p;
 			}
 
+			if ( '' === $contest ) {
+				$contest = self::field( $r, array( 'CONTEST_ID' ) );
+			}
+
+			$country = $with_countries ? Ham2K_DXCC::lookup( $r ) : '';
+			if ( '' !== $country ) {
+				$countries[ $country ] = ( $countries[ $country ] ?? 0 ) + 1;
+			}
+
 			$sent = self::field( $r, array( 'RST_SENT' ) );
 			$rcvd = self::field( $r, array( 'RST_RCVD' ) );
 
 			$rows[] = array(
-				'num'  => $idx + 1,
-				'date' => $date,
-				'time' => self::format_time( self::field( $r, array( 'TIME_ON' ) ) ),
-				'call' => strtoupper( self::field( $r, array( 'CALL' ) ) ),
-				'freq' => self::format_freq( self::field( $r, array( 'FREQ' ) ), $band ),
-				'mode' => $mode,
-				'rst'  => ( '' === $sent && '' === $rcvd ) ? '' : ( $sent ?: '–' ) . ' / ' . ( $rcvd ?: '–' ),
-				'p2p'  => str_replace( ',', ', ', $their_ref ),
+				'num'     => $idx + 1,
+				'date'    => $date,
+				'time'    => self::format_time( self::field( $r, array( 'TIME_ON' ) ) ),
+				'call'    => strtoupper( self::field( $r, array( 'CALL' ) ) ),
+				'freq'    => self::format_freq( self::field( $r, array( 'FREQ' ) ), $band ),
+				'mode'    => $mode,
+				'rst'     => ( '' === $sent && '' === $rcvd ) ? '' : ( $sent ?: '–' ) . ' / ' . ( $rcvd ?: '–' ),
+				'p2p'     => str_replace( ',', ', ', $their_ref ),
+				'country' => $country,
 			);
 		}
 
@@ -199,10 +213,10 @@ class Ham2K_ADIF_Parser {
 
 		// Azok az oszlopok, amelyekben legalább egy sorban van adat – a teljesen üreseket nem jelenítjük meg.
 		$columns = array();
-		foreach ( array( 'date', 'time', 'freq', 'mode', 'rst', 'p2p' ) as $col ) {
+		foreach ( array( 'date', 'time', 'freq', 'mode', 'rst', 'p2p', 'country' ) as $col ) {
 			$columns[ $col ] = false;
 			foreach ( $rows as $row ) {
-				if ( '' !== $row[ $col ] ) {
+				if ( '' !== (string) $row[ $col ] ) {
 					$columns[ $col ] = true;
 					break;
 				}
@@ -217,6 +231,8 @@ class Ham2K_ADIF_Parser {
 			'bands'     => $bands,
 			'modes'     => array_keys( $modes ),
 			'p2p'       => $p2p,
+			'countries' => $countries, // ország kulcsa => QSO-k száma
+			'contest'   => $contest,
 			'columns'   => $columns,
 			'rows'      => $rows,
 		);

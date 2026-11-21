@@ -1,0 +1,101 @@
+246|Sovereign Military Order of Malta|Máltai Lovagrend|Malteserorden|Ordre souverain de Malte|Orden de Malta|Sovrano Militare Ordine di Malta
+247|Spratly Islands|Spratly-szigetek|Spratly-Inseln|Îles Spratleys|Islas Spratly|Isole Spratly
+4|Agaléga & St. Brandon|Agaléga és Saint Brandon|Agaléga & St. Brandon|Agaléga et Saint-Brandon|Agaléga y San Brandón|Agaléga e Saint Brandon
+207|Rodrigues Island|Rodrigues-sziget|Rodrigues|Île Rodrigues|Isla Rodrigues|Isola Rodrigues
+195|Annobón Island|Annobón-sziget|Annobón|Annobón|Isla de Annobón|Annobón
+489|Conway Reef|Conway-zátony|Conway-Riff|Récif Conway|Arrecife Conway|Conway Reef
+460|Rotuma Island|Rotuma-sziget|Rotuma|Rotuma|Isla Rotuma|Rotuma
+199|Peter I Island|I. Péter-sziget|Peter-I.-Insel|Île Pierre-Ier|Isla Pedro I|Isola Pietro I
+117|ITU Headquarters|ITU-székház|ITU-Hauptsitz|Siège de l’UIT|Sede de la UIT|Sede dell’ITU
+289|United Nations HQ|ENSZ-székház|UNO-Hauptquartier|Siège de l’ONU|Sede de la ONU|Sede dell’ONU
+299|West Malaysia|Nyugat-Malajzia|Westmalaysia|Malaisie occidentale|Malasia Occidental|Malesia Occidentale
+46|East Malaysia|Kelet-Malajzia|Ostmalaysia|Malaisie orientale|Malasia Oriental|Malesia Orientale
+506|Scarborough Reef|Scarborough-zátony|Scarborough-Riff|Récif de Scarborough|Arrecife Scarborough|Secca di Scarborough
+505|Pratas Island|Pratas-sziget|Pratas-Insel|Île Pratas|Isla Pratas|Isola Pratas
+217|San Félix & San Ambrosio|San Félix és San Ambrosio|San Félix & San Ambrosio|San Félix et San Ambrosio|San Félix y San Ambrosio|San Félix e San Ambrosio
+47|Easter Island|Húsvét-sziget|Osterinsel|Île de Pâques|Isla de Pascua|Isola di Pasqua
+125|Juan Fernández Islands|Juan Fernández-szigetek|Juan-Fernández-Inseln|Îles Juan Fernández|Islas Juan Fernández|Isole Juan Fernández
+256|Madeira|Madeira|Madeira|Madère|Madeira|Madera
+149|Azores|Azori-szigetek|Azoren|Açores|Azores|Azzorre
+211|Sable Island|Sable-sziget|Sable Island|Île de Sable|Isla Sable|Isola Sable
+252|St. Paul Island|Saint Paul-sziget|St.-Paul-Insel|Île Saint-Paul|Isla San Pablo|Isola Saint Paul
+191|North Cook Islands|Északi-Cook-szigetek|Nördliche Cookinseln|Îles Cook du Nord|Islas Cook del Norte|Isole Cook settentrionali
+234|South Cook Islands|Déli-Cook-szigetek|Südliche Cookinseln|Îles Cook du Sud|Islas Cook del Sur|Isole Cook meridionali
+21|Balearic Islands|Baleári-szigetek|Balearen|Îles Baléares|Islas Baleares|Isole Baleari
+512|Chesterfield Islands|Chesterfield-szigetek|Chesterfieldinseln|Îles Chesterfield|Islas Chesterfield|Isole Chesterfield
+508|Austral Islands|Austral-szigetek|Austral-Inseln|Îles Australes|Islas Australes|Isole Australi
+509|Marquesas Islands|Marquises-szigetek|Marquesas-Inseln|Îles Marquises|Islas Marquesas|Isole Marchesi
+99|Glorioso Islands|Glorieuses-szigetek|Glorieuses|Îles Glorieuses|Islas Gloriosas|Isole Gloriose
+124|Juan de Nova & Europa|Juan de Nova és Europa|Juan de Nova & Europa|Juan de Nova et Europa|Juan de Nova y Europa|Juan de Nova ed Europa
+276|Tromelin Island|Tromelin-sziget|Tromelin|Île Tromelin|Isla Tromelin|Isola Tromelin
+41|Crozet Islands|Crozet-szigetek|Crozetinseln|Îles Crozet|Islas Crozet|Isole Crozet
+131|Kerguelen Islands|Kerguelen-szigetek|Kerguelen|Îles Kerguelen|Islas Kerguelen|Isole Kerguelen
+10|Amsterdam & St. Paul Islands|Amszterdam- és Szent Pál-sziget|Amsterdam & St. Paul|Îles Amsterdam et Saint-Paul|Islas Ámsterdam y San Pablo|Isole Amsterdam e Saint-Paul
+223|England|Anglia|England|Angleterre|Inglaterra|Inghilterra
+265|Northern Ireland|Észak-Írország|Nordirland|Irlande du Nord|Irlanda del Norte|Irlanda del Nord
+279|Scotland|Skócia|Schottland|Écosse|Escocia|Scozia
+294|Wales|Wales|Wales|Pays de Galles|Gales|Galles
+507|Temotu Province|Temotu tartomány|Temotu|Province de Temotu|Provincia de Temotu|Provincia di Temotu
+71|Galápagos Islands|Galápagos-szigetek|Galapagosinseln|Îles Galápagos|Islas Galápagos|Isole Galápagos
+216|San Andrés & Providencia|San Andrés és Providencia|San Andrés & Providencia|San Andrés et Providencia|San Andrés y Providencia|San Andrés e Providencia
+161|Malpelo Island|Malpelo-sziget|Malpelo|Île Malpelo|Isla de Malpelo|Isola Malpelo
+225|Sardinia|Szardínia|Sardinien|Sardaigne|Cerdeña|Sardegna
+177|Minami-Torishima|Minami-Torisima|Minami-Torishima|Minami-Tori-shima|Minami-Torishima|Minami-Torishima
+192|Ogasawara Islands|Ogaszavara-szigetek|Ogasawara-Inseln|Îles Ogasawara|Islas Ogasawara|Isole Ogasawara
+259|Svalbard|Spitzbergák|Spitzbergen|Svalbard|Svalbard|Svalbard
+118|Jan Mayen|Jan Mayen|Jan Mayen|Jan Mayen|Jan Mayen|Jan Mayen
+105|Guantánamo Bay|Guantánamói-öböl|Guantanamo-Bucht|Baie de Guantánamo|Bahía de Guantánamo|Baia di Guantánamo
+20|Baker & Howland Islands|Baker- és Howland-sziget|Baker- und Howlandinsel|Îles Baker et Howland|Islas Baker y Howland|Isole Baker e Howland
+123|Johnston Atoll|Johnston-atoll|Johnston-Atoll|Atoll Johnston|Atolón Johnston|Atollo Johnston
+174|Midway Islands|Midway-szigetek|Midwayinseln|Îles Midway|Islas Midway|Isole Midway
+197|Palmyra & Jarvis Islands|Palmyra- és Jarvis-sziget|Palmyra & Jarvis|Palmyra et Jarvis|Palmyra y Jarvis|Palmyra e Jarvis
+110|Hawaii|Hawaii|Hawaii|Hawaï|Hawái|Hawaii
+138|Kure Atoll|Kure-atoll|Kure-Atoll|Atoll Kure|Atolón Kure|Atollo Kure
+515|Swains Island|Swains-sziget|Swains Island|Île Swains|Isla Swains|Isola Swains
+297|Wake Island|Wake-sziget|Wake|Île Wake|Isla Wake|Isola Wake
+6|Alaska|Alaszka|Alaska|Alaska|Alaska|Alaska
+182|Navassa Island|Navassa-sziget|Navassa|Île de la Navasse|Isla Navaza|Isola Navassa
+43|Desecheo Island|Desecheo-sziget|Desecheo|Île Desecheo|Isla Desecheo|Isola Desecheo
+167|Market Reef|Märket|Märket|Märket|Märket|Märket
+520|Bonaire|Bonaire|Bonaire|Bonaire|Bonaire|Bonaire
+519|Saba & St. Eustatius|Saba és Sint Eustatius|Saba & St. Eustatius|Saba et Saint-Eustache|Saba y San Eustaquio|Saba e Sint Eustatius
+56|Fernando de Noronha|Fernando de Noronha|Fernando de Noronha|Fernando de Noronha|Fernando de Noronha|Fernando de Noronha
+253|St. Peter & St. Paul Rocks|Szent Péter és Szent Pál-sziklák|St.-Peter-und-St.-Pauls-Felsen|Rochers Saint-Pierre et Saint-Paul|Archipiélago de San Pedro y San Pablo|Scogli di San Pietro e San Paolo
+273|Trindade & Martim Vaz|Trindade és Martim Vaz|Trindade & Martim Vaz|Trindade et Martim Vaz|Trindade y Martim Vaz|Trindade e Martim Vaz
+61|Franz Josef Land|Ferenc József-föld|Franz-Josef-Land|Terre François-Joseph|Tierra de Francisco José|Terra di Francesco Giuseppe
+180|Mount Athos|Athosz-hegy|Berg Athos|Mont Athos|Monte Athos|Monte Athos
+45|Dodecanese|Dodekanészosz|Dodekanes|Dodécanèse|Dodecaneso|Dodecaneso
+40|Crete|Kréta|Kreta|Crète|Creta|Creta
+301|Western Kiribati|Nyugat-Kiribati|West-Kiribati|Kiribati occidental|Kiribati Occidental|Kiribati occidentali
+31|Central Kiribati|Közép-Kiribati|Zentral-Kiribati|Kiribati central|Kiribati Central|Kiribati centrali
+48|Eastern Kiribati|Kelet-Kiribati|Ost-Kiribati|Kiribati oriental|Kiribati Oriental|Kiribati orientali
+490|Banaba Island|Banaba-sziget|Banaba|Banaba|Isla Banaba|Banaba
+37|Cocos Island|Kókusz-sziget|Kokosinsel|Île Cocos|Isla del Coco|Isola del Cocco
+214|Corsica|Korzika|Korsika|Corse|Córcega|Corsica
+54|European Russia|Európai Oroszország|Europäisches Russland|Russie d’Europe|Rusia europea|Russia europea
+126|Kaliningrad|Kalinyingrád|Kaliningrad|Kaliningrad|Kaliningrado|Kaliningrad
+15|Asiatic Russia|Ázsiai Oroszország|Asiatisches Russland|Russie d’Asie|Rusia asiática|Russia asiatica
+111|Heard Island|Heard-sziget|Heard|Île Heard|Isla Heard|Isola Heard
+153|Macquarie Island|Macquarie-sziget|Macquarieinsel|Île Macquarie|Isla Macquarie|Isola Macquarie
+147|Lord Howe Island|Lord Howe-sziget|Lord-Howe-Insel|Île Lord Howe|Isla de Lord Howe|Isola di Lord Howe
+171|Mellish Reef|Mellish-zátony|Mellish-Riff|Récif Mellish|Arrecife Mellish|Mellish Reef
+303|Willis Island|Willis-sziget|Willis Island|Île Willis|Isla Willis|Isola Willis
+513|Ducie Island|Ducie-sziget|Ducie|Île Ducie|Isla Ducie|Isola Ducie
+235|South Georgia|Déli-Georgia|Südgeorgien|Géorgie du Sud|Georgia del Sur|Georgia del Sud
+241|South Shetland Islands|Déli-Shetland-szigetek|Südliche Shetlandinseln|Îles Shetland du Sud|Islas Shetland del Sur|Isole Shetland Meridionali
+238|South Orkney Islands|Déli-Orkney-szigetek|Südliche Orkneyinseln|Îles Orcades du Sud|Islas Orcadas del Sur|Isole Orcadi Meridionali
+240|South Sandwich Islands|Déli-Sandwich-szigetek|Südliche Sandwichinseln|Îles Sandwich du Sud|Islas Sandwich del Sur|Isole Sandwich Australi
+33|Chagos Islands|Chagos-szigetek|Chagos-Archipel|Archipel des Chagos|Archipiélago de Chagos|Arcipelago delle Chagos
+11|Andaman & Nicobar Islands|Andamán- és Nikobár-szigetek|Andamanen und Nikobaren|Îles Andaman-et-Nicobar|Islas Andamán y Nicobar|Isole Andamane e Nicobare
+142|Lakshadweep|Lakshadweep|Lakshadweep|Laquedives|Laquedivas|Laccadive
+204|Revillagigedo Islands|Revillagigedo-szigetek|Revillagigedo-Inseln|Îles Revillagigedo|Islas Revillagigedo|Isole Revillagigedo
+17|Aves Island|Aves-sziget|Isla Aves|Île d’Aves|Isla de Aves|Isola Aves
+283|UK Sovereign Base Areas on Cyprus|Brit katonai bázisok (Ciprus)|Britische Basen auf Zypern|Bases britanniques de Chypre|Bases británicas de Chipre|Basi britanniche di Cipro
+34|Chatham Islands|Chatham-szigetek|Chatham-Inseln|Îles Chatham|Islas Chatham|Isole Chatham
+133|Kermadec Islands|Kermadec-szigetek|Kermadecinseln|Îles Kermadec|Islas Kermadec|Isole Kermadec
+16|New Zealand Subantarctic Islands|Új-zélandi szubantarktikus szigetek|Neuseeländische subantarktische Inseln|Îles subantarctiques de Nouvelle-Zélande|Islas subantárticas de Nueva Zelanda|Isole subantartiche della Nuova Zelanda
+201|Prince Edward & Marion Islands|Prince Edward-szigetek|Prinz-Edward-Inseln|Îles du Prince-Édouard|Islas del Príncipe Eduardo|Isole del Principe Edoardo
+321|Hong Kong|Hongkong|Hongkong|Hong Kong|Hong Kong|Hong Kong
+152|Macao|Makaó|Macau|Macao|Macao|Macao
+510|Palestine|Palesztina|Palästina|Palestine|Palestina|Palestina
+309|Myanmar|Mianmar|Myanmar|Myanmar|Myanmar|Myanmar

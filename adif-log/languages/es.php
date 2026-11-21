@@ -26,6 +26,11 @@ return array(
 	'Mode'                                                               => 'Modo',
 	'RST (S/R)'                                                          => 'RST (E/R)',
 	'P2P'                                                                => 'P2P',
+	'%s Contest Log'                                                     => 'Registro de concurso %s',
+	'Contest:'                                                           => 'Concurso:',
+	'Countries: %s'                                                      => 'Países: %s',
+	'Search by callsign, mode or country...'                             => 'Buscar por indicativo, modo o país...',
+	'Country'                                                            => 'País',
 	'No results.'                                                        => 'Sin resultados.',
 
 	// Editor.
@@ -47,6 +52,7 @@ return array(
 	'Automatic'                                                          => 'Automático',
 	'Leave empty to generate it automatically from the file.'            => 'Si se deja vacío, se genera automáticamente a partir del archivo.',
 	'Summary bar (QSO count, bands, modes)'                              => 'Barra de resumen (número de QSO, bandas, modos)',
+	'Country summary bar'                                                => 'Barra de resumen de países',
 	'Search field'                                                       => 'Campo de búsqueda',
 	'Yes'                                                                => 'Sí',
 	'No'                                                                 => 'No',

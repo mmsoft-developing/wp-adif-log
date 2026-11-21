@@ -6,7 +6,8 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * @param array  $args          attachmentId, title, location, showStats, showSearch, language.
+ * @param array  $args          attachmentId, title, location, showStats, showSearch, language,
+ *                              variant ('pota' vagy 'contest'), showCountries (csak contest).
  * @param string $wrapper_attrs A külső <div> attribútumai (már escape-elve).
  * @param bool   $is_editor     Szerkesztőben hibaüzenetet mutatunk, látogatóknak semmit.
  */
@@ -39,21 +40,61 @@ function ham2k_adif_log_render_html( array $args, $wrapper_attrs, $is_editor = f
 		return ham2k_adif_log_t( $text, $lang );
 	};
 
-	$log  = Ham2K_ADIF_Parser::summarize( $adif );
+	// A POTA naplóban P2P oszlop és összesítés van, a contest naplóban helyette Ország oszlop és országösszesítő.
+	$is_contest = 'contest' === ( $args['variant'] ?? 'pota' );
+
+	$log  = Ham2K_ADIF_Parser::summarize( $adif, $is_contest );
 	$cols = $log['columns'];
+	if ( $is_contest ) {
+		$cols['p2p'] = false;
+	} else {
+		$cols['country'] = false;
+	}
+
+	// Országnév => QSO-k száma, a nyelv ábécérendjében.
+	$countries = array();
+	if ( $is_contest ) {
+		$counts = array();
+		foreach ( $log['countries'] as $key => $count ) {
+			$name = Ham2K_DXCC::name( $key, $lang );
+			if ( '' !== $name ) {
+				$counts[ $name ] = ( $counts[ $name ] ?? 0 ) + $count;
+			}
+		}
+		foreach ( Ham2K_DXCC::sort_names( array_map( 'strval', array_keys( $counts ) ), $lang ) as $name ) {
+			$countries[ $name ] = $counts[ $name ];
+		}
+	}
 
 	$title = trim( (string) ( $args['title'] ?? '' ) );
 	if ( '' === $title ) {
-		$title = trim( sprintf( $log['park_refs'] ? $t( '%s POTA Log' ) : $t( '%s Log' ), $log['station'] ) );
+		if ( $is_contest ) {
+			$format = $t( '%s Contest Log' );
+		} else {
+			$format = $log['park_refs'] ? $t( '%s POTA Log' ) : $t( '%s Log' );
+		}
+		$title = trim( sprintf( $format, $log['station'] ) );
 	}
 
 	$location = trim( (string) ( $args['location'] ?? '' ) );
-	if ( '' === $location ) {
+	if ( '' === $location && ! $is_contest ) {
 		$location = trim( implode( ', ', $log['park_refs'] ) . ' ' . $log['park_name'] );
 	}
 
 	$dates = $log['dates'];
 	$date  = count( $dates ) > 1 ? reset( $dates ) . ' – ' . end( $dates ) : implode( '', $dates );
+
+	// Az alcím elemei: (verseny), helyszín, dátum.
+	$subtitle = array();
+	if ( $is_contest && '' !== $log['contest'] ) {
+		$subtitle[] = array( $t( 'Contest:' ), $log['contest'] );
+	}
+	if ( '' !== $location ) {
+		$subtitle[] = array( $t( 'Location:' ), $location );
+	}
+	if ( '' !== $date ) {
+		$subtitle[] = array( $t( 'Date:' ), $date );
+	}
 
 	$search_id = wp_unique_id( 'ham2k-adif-search-' );
 
@@ -62,17 +103,14 @@ function ham2k_adif_log_render_html( array $args, $wrapper_attrs, $is_editor = f
 <div <?php echo $wrapper_attrs; // phpcs:ignore ?> lang="<?php echo esc_attr( $lang ); ?>">
 	<h2 class="ham2k-adif-log__title"><?php echo esc_html( $title ); ?></h2>
 
-	<?php if ( '' !== $location || '' !== $date ) : ?>
+	<?php if ( $subtitle ) : ?>
 		<div class="ham2k-adif-log__subtitle">
-			<?php if ( '' !== $location ) : ?>
-				<strong><?php echo esc_html( $t( 'Location:' ) ); ?></strong> <?php echo esc_html( $location ); ?>
-			<?php endif; ?>
-			<?php if ( '' !== $location && '' !== $date ) : ?>
-				<span class="ham2k-adif-log__sep">|</span>
-			<?php endif; ?>
-			<?php if ( '' !== $date ) : ?>
-				<strong><?php echo esc_html( $t( 'Date:' ) ); ?></strong> <?php echo esc_html( $date ); ?>
-			<?php endif; ?>
+			<?php foreach ( $subtitle as $i => $item ) : ?>
+				<?php if ( $i ) : ?>
+					<span class="ham2k-adif-log__sep">|</span>
+				<?php endif; ?>
+				<strong><?php echo esc_html( $item[0] ); ?></strong> <?php echo esc_html( $item[1] ); ?>
+			<?php endforeach; ?>
 		</div>
 	<?php endif; ?>
 
@@ -85,15 +123,26 @@ function ham2k_adif_log_render_html( array $args, $wrapper_attrs, $is_editor = f
 			<?php if ( $log['modes'] ) : ?>
 				<div><?php echo esc_html( sprintf( count( $log['modes'] ) > 1 ? $t( 'Modes: %s' ) : $t( 'Mode: %s' ), implode( ', ', $log['modes'] ) ) ); ?></div>
 			<?php endif; ?>
-			<?php if ( $log['p2p'] ) : ?>
+			<?php if ( ! $is_contest && $log['p2p'] ) : ?>
 				<div><?php echo esc_html( sprintf( $t( 'P2P: %s' ), $log['p2p'] ) ); ?></div>
 			<?php endif; ?>
 		</div>
 	<?php endif; ?>
 
+	<?php if ( $is_contest && $countries && ( $args['showCountries'] ?? true ) ) : ?>
+		<details class="ham2k-adif-log__countries">
+			<summary><?php echo esc_html( sprintf( $t( 'Countries: %s' ), count( $countries ) ) ); ?></summary>
+			<ul class="ham2k-adif-log__country-list">
+				<?php foreach ( $countries as $country => $count ) : ?>
+					<li data-name="<?php echo esc_attr( $country ); ?>"><?php echo esc_html( $country ); ?> <span class="ham2k-adif-log__count">(<?php echo (int) $count; ?>)</span></li>
+				<?php endforeach; ?>
+			</ul>
+		</details>
+	<?php endif; ?>
+
 	<?php if ( ! empty( $args['showSearch'] ) ) : ?>
 		<label class="screen-reader-text" for="<?php echo esc_attr( $search_id ); ?>"><?php echo esc_html( $t( 'Search the log' ) ); ?></label>
-		<input type="search" id="<?php echo esc_attr( $search_id ); ?>" class="ham2k-adif-log__search" placeholder="<?php echo esc_attr( $t( 'Search by callsign, mode or park...' ) ); ?>" autocomplete="off">
+		<input type="search" id="<?php echo esc_attr( $search_id ); ?>" class="ham2k-adif-log__search" placeholder="<?php echo esc_attr( $is_contest ? $t( 'Search by callsign, mode or country...' ) : $t( 'Search by callsign, mode or park...' ) ); ?>" autocomplete="off">
 	<?php endif; ?>
 
 	<div class="ham2k-adif-log__table-wrapper">
@@ -119,6 +168,9 @@ function ham2k_adif_log_render_html( array $args, $wrapper_attrs, $is_editor = f
 					<?php endif; ?>
 					<?php if ( $cols['p2p'] ) : ?>
 						<th><?php echo esc_html( $t( 'P2P' ) ); ?></th>
+					<?php endif; ?>
+					<?php if ( $cols['country'] ) : ?>
+						<th><?php echo esc_html( $t( 'Country' ) ); ?></th>
 					<?php endif; ?>
 				</tr>
 			</thead>
@@ -148,6 +200,9 @@ function ham2k_adif_log_render_html( array $args, $wrapper_attrs, $is_editor = f
 									<span class="ham2k-adif-log__badge"><?php echo esc_html( $row['p2p'] ); ?></span>
 								<?php endif; ?>
 							</td>
+						<?php endif; ?>
+						<?php if ( $cols['country'] ) : ?>
+							<td class="ham2k-adif-log__country"><?php echo esc_html( Ham2K_DXCC::name( $row['country'], $lang ) ); ?></td>
 						<?php endif; ?>
 					</tr>
 				<?php endforeach; ?>

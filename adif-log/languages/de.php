@@ -26,6 +26,11 @@ return array(
 	'Mode'                                                               => 'Betriebsart',
 	'RST (S/R)'                                                          => 'RST (S/E)',
 	'P2P'                                                                => 'P2P',
+	'%s Contest Log'                                                     => '%s Contest-Log',
+	'Contest:'                                                           => 'Contest:',
+	'Countries: %s'                                                      => 'Länder: %s',
+	'Search by callsign, mode or country...'                             => 'Suche nach Rufzeichen, Betriebsart oder Land...',
+	'Country'                                                            => 'Land',
 	'No results.'                                                        => 'Keine Treffer.',
 
 	// Editor.
@@ -47,6 +52,7 @@ return array(
 	'Automatic'                                                          => 'Automatisch',
 	'Leave empty to generate it automatically from the file.'            => 'Leer lassen, um ihn automatisch aus der Datei zu erzeugen.',
 	'Summary bar (QSO count, bands, modes)'                              => 'Übersichtsleiste (QSO-Anzahl, Bänder, Betriebsarten)',
+	'Country summary bar'                                                => 'Länderübersicht',
 	'Search field'                                                       => 'Suchfeld',
 	'Yes'                                                                => 'Ja',
 	'No'                                                                 => 'Nein',

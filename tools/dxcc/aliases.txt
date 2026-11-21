@@ -1,0 +1,31 @@
+230|Federal Republic of Germany
+230|Germany
+291|United States of America
+291|USA
+503|Czech Republic
+504|Slovakia
+137|South Korea
+344|North Korea
+344|DPR of Korea
+293|Viet Nam
+501|Bosnia and Herzegovina
+502|Macedonia
+468|Swaziland
+468|Eswatini
+511|Timor-Leste
+511|East Timor
+414|Democratic Republic of the Congo
+412|Congo
+428|Ivory Coast
+409|Cape Verde
+345|Brunei
+152|Macau
+259|Svalbard
+54|Russia
+309|Burma
+522|Kosovo
+521|South Sudan
+33|British Indian Ocean Territory
+246|Sovereign Military Order of Malta
+302|Western Sahara
+510|Palestine

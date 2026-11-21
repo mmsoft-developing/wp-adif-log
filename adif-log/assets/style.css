@@ -52,6 +52,84 @@
 	color: #1d4ed8;
 }
 
+/* Contest napló: lenyíló országösszesítő – ugyanolyan sáv, mint az összesítő. */
+.ham2k-adif-log .ham2k-adif-log__countries {
+	margin: 0 0 20px;
+	background-color: #eff6ff;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+.ham2k-adif-log .ham2k-adif-log__stats + .ham2k-adif-log__countries {
+	margin-top: -10px;
+}
+
+.ham2k-adif-log .ham2k-adif-log__countries summary {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 16px;
+	font-weight: bold;
+	color: #1d4ed8;
+	cursor: pointer;
+	list-style: none;
+	user-select: none;
+}
+
+.ham2k-adif-log .ham2k-adif-log__countries summary::-webkit-details-marker {
+	display: none;
+}
+
+.ham2k-adif-log .ham2k-adif-log__countries summary::after {
+	content: "";
+	width: 7px;
+	height: 7px;
+	margin-left: 2px;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transform: translateY(-2px) rotate(45deg);
+	transition: transform 0.15s ease;
+}
+
+.ham2k-adif-log .ham2k-adif-log__countries[open] summary::after {
+	transform: translateY(2px) rotate(-135deg);
+}
+
+.ham2k-adif-log .ham2k-adif-log__countries summary:hover {
+	color: #1e3a8a;
+}
+
+.ham2k-adif-log .ham2k-adif-log__countries summary:focus-visible {
+	outline: 2px solid #1d4ed8;
+	outline-offset: -2px;
+	border-radius: 6px;
+}
+
+.ham2k-adif-log .ham2k-adif-log__country-list {
+	columns: 4 180px;
+	column-gap: 24px;
+	margin: 0;
+	padding: 4px 16px 14px;
+	list-style: none;
+	color: #1e293b;
+}
+
+.ham2k-adif-log .ham2k-adif-log__country-list li {
+	margin: 0;
+	padding: 3px 0;
+	break-inside: avoid;
+}
+
+.ham2k-adif-log .ham2k-adif-log__count {
+	color: #6b7280;
+	font-size: 0.9em;
+}
+
+.ham2k-adif-log td.ham2k-adif-log__country {
+	white-space: normal;
+	min-width: 120px;
+}
+
 .ham2k-adif-log .ham2k-adif-log__search {
 	display: block;
 	width: 100%;
@@ -152,12 +230,22 @@
 	}
 
 	.ham2k-adif-log .ham2k-adif-log__subtitle,
-	.ham2k-adif-log .ham2k-adif-log__stats {
+	.ham2k-adif-log .ham2k-adif-log__stats,
+	.ham2k-adif-log .ham2k-adif-log__countries {
 		font-size: 13px;
 	}
 
-	.ham2k-adif-log .ham2k-adif-log__stats {
+	.ham2k-adif-log .ham2k-adif-log__stats,
+	.ham2k-adif-log .ham2k-adif-log__countries summary {
 		padding: 10px 12px;
+	}
+
+	.ham2k-adif-log .ham2k-adif-log__country-list {
+		padding: 2px 12px 12px;
+	}
+
+	.ham2k-adif-log td.ham2k-adif-log__country {
+		min-width: 90px;
 	}
 
 	.ham2k-adif-log .ham2k-adif-log__table {

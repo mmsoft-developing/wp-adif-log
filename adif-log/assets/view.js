@@ -1,5 +1,25 @@
 ( function () {
+	// Az országlista sorrendje a blokk nyelvének ábécéje szerint. A szerver is rendez,
+	// de ha ott nincs intl bővítmény, a böngésző pontosabb (pl. magyar cs, gy, sz betűk).
+	function sortCountries( block ) {
+		var list = block.querySelector( '.ham2k-adif-log__country-list' );
+		if ( ! list || ! window.Intl || ! Intl.Collator ) {
+			return;
+		}
+		var collator = new Intl.Collator( block.getAttribute( 'lang' ) || undefined );
+		Array.prototype.slice
+			.call( list.children )
+			.sort( function ( a, b ) {
+				return collator.compare( a.getAttribute( 'data-name' ) || '', b.getAttribute( 'data-name' ) || '' );
+			} )
+			.forEach( function ( li ) {
+				list.appendChild( li );
+			} );
+	}
+
 	function init( block ) {
+		sortCountries( block );
+
 		var input = block.querySelector( '.ham2k-adif-log__search' );
 		if ( ! input || input.dataset.ham2kReady ) {
 			return;
@@ -46,9 +66,11 @@
 			return;
 		}
 		hooked = true;
-		window.elementorFrontend.hooks.addAction( 'frontend/element_ready/ham2k_adif_log.default', function ( $scope ) {
+		function onReady( $scope ) {
 			initAll( $scope[ 0 ] );
-		} );
+		}
+		window.elementorFrontend.hooks.addAction( 'frontend/element_ready/ham2k_adif_log.default', onReady );
+		window.elementorFrontend.hooks.addAction( 'frontend/element_ready/ham2k_adif_contest_log.default', onReady );
 	}
 	hookElementor();
 	if ( window.jQuery ) {

@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       ADIF Log
- * Description:       Gutenberg block and Elementor widget that displays a searchable QSO log table (with POTA support) from an ADIF (.adi / .adif) file in the media library. Available in English, Hungarian, German, French, Spanish and Italian.
- * Version:           1.5.0
+ * Description:       Gutenberg blocks and Elementor widgets (ADIF POTA log, ADIF Contest log) that display a searchable QSO log table from an ADIF (.adi / .adif) file in the media library. Available in English, Hungarian, German, French, Spanish and Italian.
+ * Version:           1.6.0
  * Requires at least: 6.3
  * Requires PHP:      7.4
  * Plugin URI:        https://github.com/mmsoft-developing/wp-adif-log
@@ -14,10 +14,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'HAM2K_ADIF_LOG_VERSION', '1.5.0' );
+define( 'HAM2K_ADIF_LOG_VERSION', '1.6.0' );
 
 require_once __DIR__ . '/includes/i18n.php';
 require_once __DIR__ . '/includes/class-adif-parser.php';
+require_once __DIR__ . '/includes/class-dxcc.php';
 require_once __DIR__ . '/includes/render.php';
 
 add_action(
@@ -47,6 +48,7 @@ add_action(
 		);
 
 		register_block_type( __DIR__ . '/block' );
+		register_block_type( __DIR__ . '/block-contest' );
 	}
 );
 
@@ -55,6 +57,7 @@ add_action(
 	function ( $widgets_manager ) {
 		require_once __DIR__ . '/includes/class-elementor-widget.php';
 		$widgets_manager->register( new Ham2K_ADIF_Log_Elementor_Widget() );
+		$widgets_manager->register( new Ham2K_ADIF_Contest_Log_Elementor_Widget() );
 	}
 );
 

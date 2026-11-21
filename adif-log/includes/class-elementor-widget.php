@@ -1,18 +1,24 @@
 <?php
 /**
- * Elementor widget – ugyanazt a táblázatot rajzolja ki, mint a Gutenberg blokk.
+ * Elementor widgetek – ugyanazt a táblázatot rajzolják ki, mint a Gutenberg blokkok.
+ * ADIF POTA log (ham2k_adif_log) és ADIF Contest log (ham2k_adif_contest_log).
  */
 
 defined( 'ABSPATH' ) || exit;
 
 class Ham2K_ADIF_Log_Elementor_Widget extends \Elementor\Widget_Base {
 
+	/** 'pota' vagy 'contest' – a renderelőnek átadott változat. */
+	protected function variant() {
+		return 'pota';
+	}
+
 	public function get_name() {
 		return 'ham2k_adif_log';
 	}
 
 	public function get_title() {
-		return 'ADIF log';
+		return 'ADIF POTA log';
 	}
 
 	public function get_icon() {
@@ -111,6 +117,20 @@ class Ham2K_ADIF_Log_Elementor_Widget extends \Elementor\Widget_Base {
 			)
 		);
 
+		if ( 'contest' === $this->variant() ) {
+			$this->add_control(
+				'show_countries',
+				array(
+					'label'        => $t( 'Country summary bar' ),
+					'type'         => \Elementor\Controls_Manager::SWITCHER,
+					'label_on'     => $t( 'Yes' ),
+					'label_off'    => $t( 'No' ),
+					'return_value' => 'yes',
+					'default'      => 'yes',
+				)
+			);
+		}
+
 		$this->add_control(
 			'show_search',
 			array(
@@ -132,15 +152,39 @@ class Ham2K_ADIF_Log_Elementor_Widget extends \Elementor\Widget_Base {
 
 		echo ham2k_adif_log_render_html( // phpcs:ignore
 			array(
-				'attachmentId' => isset( $file['id'] ) ? (int) $file['id'] : 0,
-				'title'        => $s['title'] ?? '',
-				'location'     => $s['location'] ?? '',
-				'showStats'    => 'yes' === ( $s['show_stats'] ?? '' ),
-				'showSearch'   => 'yes' === ( $s['show_search'] ?? '' ),
-				'language'     => $s['language'] ?? '',
+				'attachmentId'  => isset( $file['id'] ) ? (int) $file['id'] : 0,
+				'title'         => $s['title'] ?? '',
+				'location'      => $s['location'] ?? '',
+				'showStats'     => 'yes' === ( $s['show_stats'] ?? '' ),
+				'showSearch'    => 'yes' === ( $s['show_search'] ?? '' ),
+				'language'      => $s['language'] ?? '',
+				'variant'       => $this->variant(),
+				'showCountries' => 'yes' === ( $s['show_countries'] ?? 'yes' ),
 			),
-			'class="ham2k-adif-log"',
+			'contest' === $this->variant() ? 'class="ham2k-adif-log ham2k-adif-log--contest"' : 'class="ham2k-adif-log"',
 			\Elementor\Plugin::$instance->editor->is_edit_mode()
 		);
+	}
+}
+
+/**
+ * ADIF Contest log: P2P helyett Ország oszlop és lenyíló országösszesítő.
+ */
+class Ham2K_ADIF_Contest_Log_Elementor_Widget extends Ham2K_ADIF_Log_Elementor_Widget {
+
+	protected function variant() {
+		return 'contest';
+	}
+
+	public function get_name() {
+		return 'ham2k_adif_contest_log';
+	}
+
+	public function get_title() {
+		return 'ADIF Contest log';
+	}
+
+	public function get_keywords() {
+		return array( 'adif', 'log', 'qso', 'contest', 'dxcc', 'country', 'verseny', 'napló' );
 	}
 }

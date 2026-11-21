@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ham2k/adif-contest-log",
+	"version": "1.6.0",
+	"title": "ADIF Contest log",
+	"category": "widgets",
+	"icon": "list-view",
+	"description": "Searchable contest QSO log table with a country column and an expandable country summary from an ADIF (.adi / .adif) file in the media library.",
+	"keywords": [ "adif", "log", "qso", "contest", "dxcc", "country", "verseny", "napló" ],
+	"textdomain": "adif-log",
+	"attributes": {
+		"attachmentId": { "type": "number", "default": 0 },
+		"fileName": { "type": "string", "default": "" },
+		"title": { "type": "string", "default": "" },
+		"location": { "type": "string", "default": "" },
+		"showStats": { "type": "boolean", "default": true },
+		"showCountries": { "type": "boolean", "default": true },
+		"showSearch": { "type": "boolean", "default": true },
+		"language": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "ham2k-adif-log-editor",
+	"viewScript": "ham2k-adif-log-view",
+	"style": "ham2k-adif-log",
+	"render": "file:./render.php"
+}

@@ -26,6 +26,11 @@ return array(
 	'Mode'                                                               => 'Mód',
 	'RST (S/R)'                                                          => 'RST (S/R)',
 	'P2P'                                                                => 'P2P',
+	'%s Contest Log'                                                     => '%s Contest Napló',
+	'Contest:'                                                           => 'Verseny:',
+	'Countries: %s'                                                      => 'Országok: %s',
+	'Search by callsign, mode or country...'                             => 'Keresés hívójel, mód vagy ország alapján...',
+	'Country'                                                            => 'Ország',
 	'No results.'                                                        => 'Nincs találat.',
 
 	// Szerkesztő.
@@ -47,6 +52,7 @@ return array(
 	'Automatic'                                                          => 'Automatikus',
 	'Leave empty to generate it automatically from the file.'            => 'Üresen hagyva automatikusan a fájlból készül.',
 	'Summary bar (QSO count, bands, modes)'                              => 'Összesítő sáv (QSO szám, sávok, módok)',
+	'Country summary bar'                                                => 'Országösszesítő sáv',
 	'Search field'                                                       => 'Keresőmező',
 	'Yes'                                                                => 'Igen',
 	'No'                                                                 => 'Nem',
